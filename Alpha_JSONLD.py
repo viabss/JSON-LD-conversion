@@ -48,11 +48,13 @@ def import_file():
         print(raw_Data[['prefLabel','altLabel']])
     altlabel_Dict = altLabelDict(raw_Data[['prefLabel','altLabel']])
     preflabel_Dict = prefLabelDict(raw_Data.drop('altLabel',axis = 1))
-    return altlabel_Dict,preflabel_Dict
+    return {'altLabel_key':altlabel_Dict,'prefLabel_key':preflabel_Dict}
     
 
 def main():
-    import_file()
+    returns = {}
+    returns = import_file()
+    print(returns)
     
 main()
     
